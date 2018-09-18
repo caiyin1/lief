@@ -4,15 +4,14 @@ Player::Player()
 {
     // 创建一个背包对象
     Package *package = new Package();
-
     // 调用函数绑定背包到人物身上
-    setPlayerPackage(package);
+    this->setPlayerPackage(package);
 
 }
 
 Player::~Player()
 {
-    delete m_package;
+    delete m_pPackage;
 }
 
 
@@ -21,7 +20,7 @@ Player::~Player()
 */
 void Player::setPlayerMoney(int money)
 {
-    m_money = money;
+    m_nMoney = money;
 }
 
 
@@ -30,7 +29,7 @@ void Player::setPlayerMoney(int money)
 */
 int Player::getPlayerMoney()
 {
-    return m_money;
+    return m_nMoney;
 }
 
 
@@ -39,7 +38,7 @@ int Player::getPlayerMoney()
 */
 void Player::setPlayerHealth(int health)
 {
-    m_health = health;
+    m_nHealth = health;
 }
 
 
@@ -48,7 +47,7 @@ void Player::setPlayerHealth(int health)
 */
 int Player::getPlayerHealth()
 {
-    return m_health;
+    return m_nHealth;
 }
 
 
@@ -57,7 +56,7 @@ int Player::getPlayerHealth()
 */
 void Player::setPlayerReputation(int reputation)
 {
-    m_reputation = reputation;
+    m_nReputation = reputation;
 }
 
 
@@ -66,7 +65,7 @@ void Player::setPlayerReputation(int reputation)
 */
 int Player::getPlayerReputation()
 {
-    return m_reputation;
+    return m_nReputation;
 }
 
 
@@ -75,7 +74,7 @@ int Player::getPlayerReputation()
 */
 void Player::setPlayerDeposit(int deposit)
 {
-    m_deposit = deposit;
+    m_nDeposit = deposit;
 }
 
 
@@ -84,7 +83,7 @@ void Player::setPlayerDeposit(int deposit)
 */
 int Player::getPlayerDeposit()
 {
-    return m_deposit;
+    return m_nDeposit;
 }
 
 
@@ -93,7 +92,7 @@ int Player::getPlayerDeposit()
 */
 void Player::setPlayerDebt(int debt)
 {
-    m_debt = debt;
+    m_nDebt = debt;
 }
 
 
@@ -102,7 +101,7 @@ void Player::setPlayerDebt(int debt)
 */
 int Player::getPlayerDebt()
 {
-    return m_debt;
+    return m_nDebt;
 }
 
 
@@ -114,8 +113,11 @@ bool Player::buy(Goods *goods,int amount)
     /**
     * 购入的货物数量必须大于0，否则提示购入货物失败
     */
+	Goods* goods = Goods:getInstance();
+	bool  bRet = false;
     if(amount <= 0)
     {
+		cout << "购买失败" << endl;
 //        // 如果购入数量小于0，提示购入货物失败
 //        if(amount < 0)
 //            printf("购入货物的数量小于0，购入货物失败！\n");
@@ -125,9 +127,7 @@ bool Player::buy(Goods *goods,int amount)
 //            printf("购入货物的数量为0，已默认为放弃购入。\n");
 
         // 返回值为false
-        return false;
     }
-
     /**
     * 如果想购买的数量大于货物数量，提示错误
     * 用else if是为了只出现一种提示
@@ -143,7 +143,7 @@ bool Player::buy(Goods *goods,int amount)
     /**
     * 判断仓库容量是否足够，不足则不能购入，提示先清空仓库
     */
-    else if(m_package->getMaxReserve() + amount > m_package->getMaxReserve())
+    else if(m_pPackage->getMaxReserve() + amount > m_pPackage->getMaxReserve())
     {
         printf("仓库容量不足，请先清空仓库。\n");
 
@@ -154,7 +154,7 @@ bool Player::buy(Goods *goods,int amount)
     /**
     * 如果现金不足以买预购入的商品，给出提示
     */
-    else if(goods->getGoodsPrice() * amount > m_money)
+    else if(goods->getGoodsPrice() * amount > m_nMoney)
     {
 //        printf("当前现金不足，请先取钱后再来。\n");
 
@@ -173,10 +173,10 @@ bool Player::buy(Goods *goods,int amount)
         goods->setGoodsQualtity(goods->getGoodsQualtity() - amount);
 
         // 玩家现金减少:货物价格 * 货物数量
-        m_money -= goods->getGoodsPrice() * amount;
+        m_nMoney -= goods->getGoodsPrice() * amount;
 
         // 仓库当前容量增加，可用容量减少
-        m_package->setCurReserve(m_package->getCurReserve() + amount);
+        m_pPackage->setCurReserve(m_pPackage->getCurReserve() + amount);
 
 
         ///////////
@@ -237,10 +237,10 @@ bool Player::sell(Goods *goods,int amount)
     else
     {
         // 出售后，玩家现金增加:货物价格 * 货物数量
-        m_money += goods->getGoodsPrice() * amount;
+        m_nMoney += goods->getGoodsPrice() * amount;
 
         // 仓库当前容量减少，可用容量增加
-        m_package->setCurReserve(m_package->getCurReserve() - amount);
+        m_pPackage->setCurReserve(m_pPackage->getCurReserve() - amount);
 
         ////////////////
         //
@@ -263,7 +263,7 @@ bool Player::sell(Goods *goods,int amount)
 */
 void Player::setPlayerPackage(Package *package)
 {
-    m_package = package;
+    m_pPackage = package;
 }
 
 
@@ -272,7 +272,7 @@ void Player::setPlayerPackage(Package *package)
 */
 Package *Player::getPlayerPackage()
 {
-    return m_package;
+    return m_pPackage;
 }
 
 
