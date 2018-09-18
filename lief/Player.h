@@ -7,11 +7,21 @@
 #include "Package.h"
 #include "Goods.h"
 
+Player* instance = nullptr;
+
 using namespace std;
 
 class Player
 {
     public:
+		 static Player* getInstance()
+		{
+			if (instance == NULL)
+				instance = new Player();
+
+			return instance;
+		}
+
         Player();
         virtual ~Player();
 
@@ -87,12 +97,12 @@ class Player
     protected:
 
     private:
-        int m_money = 2000;         // 现金
-        int m_health = 100;         // 健康值
-        int m_reputation = 100;     // 声望
-        int m_deposit = 0;          // 存款
-        int m_debt = 5500;          // 欠款
-        Package *m_package;         // 背包
+        int m_nMoney = 2000;         // 现金
+        int m_nHealth = 100;         // 健康值
+        int m_nReputation = 100;     // 声望
+        int m_nDeposit = 0;          // 存款
+        int m_nDebt = 5500;          // 欠款
+        Package *m_pPackage;         // 背包
 };
 
 #endif // PLAYER_H
