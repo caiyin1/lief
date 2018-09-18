@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1536803173 source:e:\project\cbproject\urbanlife\main.cpp
+	<bits/stdc++.h>
+	"GameController.h"
+	"SoundController.h"
+	"EventController.h"
+	"TimeController.h"
+
+1536802506 e:\project\cbproject\urbanlife\gamecontroller.h
+	"SoundController.h"
+	"EventController.h"
+	"TimeController.h"
+	<conio.h>
+	<windows.h>
+
+1536801972 e:\project\cbproject\urbanlife\soundcontroller.h
+	"GameController.h"
+	"EventController.h"
+	"TimeController.h"
+
+1536801972 e:\project\cbproject\urbanlife\eventcontroller.h
+	"GameController.h"
+	"SoundController.h"
+	"TimeController.h"
+
+1536801972 e:\project\cbproject\urbanlife\timecontroller.h
+	"GameController.h"
+	"SoundController.h"
+	"EventController.h"
+

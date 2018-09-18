@@ -14,4 +14,103 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BlackMarket.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="EventView.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GameSences.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GameView.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Goods.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Package.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SencesView.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Station.cpp">
+      <Filter>头文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BlackMarket.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="EventController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="EventView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GameController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GameSences.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GameView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Goods.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Hurt.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MarketNews.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="News.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Package.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SencesView.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Station.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Stolen.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UrbanLife.cbp">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="UrbanLife.depend">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="UrbanLife.layout">
+      <Filter>头文件</Filter>
+    </None>
+  </ItemGroup>
 </Project>

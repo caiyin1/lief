@@ -18,6 +18,43 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BlackMarket.cpp" />
+    <ClCompile Include="EventView.cpp" />
+    <ClCompile Include="GameSences.cpp" />
+    <ClCompile Include="GameView.cpp" />
+    <ClCompile Include="Goods.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Package.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="SencesView.cpp" />
+    <ClCompile Include="Station.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BlackMarket.h" />
+    <ClInclude Include="Event.h" />
+    <ClInclude Include="EventController.h" />
+    <ClInclude Include="EventView.h" />
+    <ClInclude Include="GameController.h" />
+    <ClInclude Include="GameSences.h" />
+    <ClInclude Include="GameView.h" />
+    <ClInclude Include="Goods.h" />
+    <ClInclude Include="Hurt.h" />
+    <ClInclude Include="MarketNews.h" />
+    <ClInclude Include="News.h" />
+    <ClInclude Include="Package.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="SencesView.h" />
+    <ClInclude Include="SoundController.h" />
+    <ClInclude Include="Station.h" />
+    <ClInclude Include="Stolen.h" />
+    <ClInclude Include="TimeController.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UrbanLife.cbp" />
+    <None Include="UrbanLife.depend" />
+    <None Include="UrbanLife.layout" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{3DD1163C-0510-4908-AF91-46DCF221CB5B}</ProjectGuid>
@@ -114,8 +151,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
