@@ -1,48 +1,29 @@
-#ifndef STATION_H_INCLUDED
-#define STATION_H_INCLUDED
-#include"BlackMarket.h"
-#include"GameSences.h"
-//³õÊ¼»¯µØÌúÕ¾µÄÁĞ±í
-    string stationNames[] = {
-        "Î÷Ö±ÃÅ",
-        "»ıË®Ì¶",
-        "¶«Ö±ÃÅ",
-        "Æ»¹ûÔ°",
-        "¹«Ö÷·Ø",
-        "¸´ĞËÃÅ",
-        "½¨¹úÃÅ",
-        "³¤´»½Ö",
-        "³çÎÄÃÅ",
-        "±±¾©Õ¾"
-    };
+#ifndef STATION_H
+#define STATION_H
 
-class Station: public virtual GameSences{
-private:
-    int m_id;   //µØÌúÕ¾±àºÅ
-    bool m_isExistBlackMarket;  //µ±Ç°µØÌúÕ¾ÊÇ·ñ´æÔÚºÚÊĞ
-    BlackMarket* m_BlackMarket; //Èç¹û²»´æÔÚºÚÊĞ£¬ÔòÎªnull
+#include "GameSences.h"
+#include "BlackMarket.h"
 
-public:
+class Station : public GameSences
+{
+    public:
+        // Station() :: GameSences(ENUM_SENCES_STATION,"åœ°é“ç«™") {}
+        virtual ~Station();
 
-Station();
+        void setStationId(int id);
 
-virtual ~Station();
+        int getStationId();
 
-/** ÉèÖÃµØÌú±àºÅ */
-void setStation(int id);
+        void setBlackMarketStatus(bool isExist);
 
-/** »ñÈ¡µØÌú±àºÅ */
-int getStation();
+        bool getBlackMarketStatus();
 
-/** ÉèÖÃµ±Ç°µØÌúÕ¾µÄºÚÊĞ×´Ì¬ */
-void setBlackMarketStatus(bool isExist);
+        BlackMarket* getBlackmarketInstance();
 
-/** »ñÈ¡µ±Ç°µØÌúÕ¾µÄºÚÊĞ×´Ì¬ */
-bool getBlackMarketStatus();
-
-/** »ñÈ¡ºÚÊĞÊµÀı¶ÔÏó£¬²»´æÔÚÔòÎªnull */
-BlackMarket* getBlackMarketInstance();
-
+    private:
+        int m_nId;
+        bool m_bIsExistBlackMarket;
+        BlackMarket *m_pBlackMarket;
 };
 
-#endif // STATION_H_INCLUDED
+#endif // STATION_H

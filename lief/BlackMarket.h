@@ -1,43 +1,36 @@
-#ifndef BLACKMARKET_H_INCLUDED
-#define BLACKMARKET_H_INCLUDED
-#include<list>
-#include"Goods.h"
-#include"GameSences.h"
-class BlackMarket:public GameSences{
-private:
-list<Goods> m_goodsList;    //黑市的货物列表
+#ifndef BLACKMARKET_H
+#define BLACKMARKET_H
 
-public:
-BlackMarket()
+#include "Goods.h"
+#include <map>
+
+using namespace std;
+
+class BlackMarket
 {
-    list<Goods> goodList(10);
-    this->m_goodsList = goodList;
-}
-/** 加载货物列表 */
-void loadGoods();
+    public:
+        BlackMarket();
+        virtual ~BlackMarket();
 
-/** 更新货物 */
-void updateGoods();
+        void loadGoods();
 
-/** 在黑市出售玩家仓库中的货物 */
-void sellGoods(int id,int countNum);
+        // int sellGoods(int goodsId, int goodsAmounts);
+		/**
+		* @brief 出售商品
+		*/
+        bool sellGoods(int nGoodsId, int nGoodsAmounts);
 
-/*
- * 在黑市购买一定数量的货物
- * @param id 商品的编号
- * @param account 商品的数量
- */
-Goods* buyGoods(int id,int account);
+		/*
+		 * 在黑市购买一定数量的货物
+		 * @param id 商品的编号
+		 * @param account 商品的数量
+		 */
+		Goods* buyGoods(int id, int account);
 
-/** 获取货物列表 */
-list<Goods> getGoodsList();
+        map<int, Goods*> getGoodsList();
 
-
-
-
-
-
-
+    private:
+        map<int, Goods*> m_mapGoodsList;
 };
 
-#endif // BLACKMARKET_H_INCLUDED
+#endif // BLACKMARKET_H

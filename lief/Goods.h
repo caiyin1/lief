@@ -80,17 +80,14 @@ class Goods
         */
         int getGoodsMaxPrice();
 
-
-    protected:
-
     private:
-        int m_id;
-        string m_name;
-        int m_qualtity;
-        int m_purchasePrice;
-        int m_price;
-        int m_minPrice;
-        int m_maxPrice;
+        int m_nId;
+        string m_strName;
+        int m_nQualtity;
+        int m_nPurchasePrice;
+        int m_nPrice;
+        int m_nMinPrice;
+        int m_nMaxPrice;
 };
 
 #endif // GOODS_H

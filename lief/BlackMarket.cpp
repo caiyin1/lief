@@ -1,20 +1,20 @@
 #include"BlackMarket.h"
 #include<ctime>
 #include<iostream>
+#include "Player.h"
 
 using namespace std;
 
 /** 加载货物列表 */
 void BlackMarket::loadGoods()
 {
-    //显示出各种货物的信息
+	//显示出各种货物的信息
     //第一步更新货物
     this->getGoodsList();
     //最后一步，打印货物
-    list<Goods>::iterator iter;
 
-    for(iter = this->m_goodsList.begin(); iter != this->m_goodsList.end() ;iter++){
-    // cout<< *iter <<endl;
+    for(auto iter = this->m_mapGoodsList.begin(); iter != this->m_mapGoodsList.end() ;iter++){
+     cout<< iter->second->getGoodsPrice()<< "\t" << iter->second->getGoodsPrice() << iter->second->getGoodsQualtity() <<endl;
     }
 }
 
@@ -31,33 +31,33 @@ void updateGoods(){
     }
 }
 
-list<Goods> BlackMarket::getGoodsList()
+map<int, Goods*> BlackMarket::getGoodsList()
 {
     //获取所有的货物信息货物信息
-    return this->m_goodsList;
+    return this->m_mapGoodsList;
 }
 
 
 /** 在黑市出售玩家仓库中的货物 */
-void sellGoods(int id,int countNum){
+bool BlackMarket::sellGoods(int nGoodsId, int nGoodsAmounts){
     //获取玩家仓库的货物
     //通过编号查找商品
     //这里需要用到玩家类和仓库类。。。然而我没有。。。
     //假设Goods类是仓库类。。
-    Goods* goods = new Goods();
-    for(int i = 0; i < 10 ;i++)
-    {
-        if(goods->m_id == id)
-            //指针指向它
-            break;
-    }
-    else{cout<<"错误"<<endl;}
+	auto pGoods = this->m_mapGoodsList.find(nGoodsId);
+	if (pGoods == this->m_mapGoodsList.end())
+	{
+		cout << "找不到该商品" << endl;
+		return false;
+	}
    //找到后就减少货物，加玩家的金币
-   goods->m_qualtity -=countNum;
+   // goods->m_nQualtity -=countNum;
    /**
-        player.money += goods->m_price * countNum;
+        player.money += goods->m_nPrice * countNum;
 
    */
+	Player::getInstance()->buy(pGoods->second, nGoodsAmounts);
+	return true;
 }
 
 /*
@@ -69,19 +69,19 @@ Goods* BlackMarket::buyGoods(int id,int account){
 
     Goods* goods = new Goods();
     //获取一个迭代器
-    list<Goods>::iterator iter;
+    /*list<Goods>::iterator iter;
     //找到黑市对应的货物id，退出
     for(iter = this->m_goodsList.begin(); iter != this->m_goodsList.end();iter++)
     {
         if(iter->id == id)
             break;
     }
-    if(account <= iter->m_qualtity)
+    if(account <= iter->m_nQualtity)
     {
         /**
             玩家的仓库相应的货物增加，然后玩家的金币减少
         */
-    }
-    else{cout<<"输入数量错误!"<<endl;}
+	//    }
+    /*else{cout<<"输入数量错误!"<<endl;}*/
     return goods;
 }

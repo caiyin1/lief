@@ -1,21 +1,16 @@
-#include<iostream>
 #include"GameView.h"
 #include"News.h"
 #include"Stolen.h"
 #include"MarketNews.h"
 #include<cstdlib>
 #include<string>
+#include <iostream>
+#include "GameController.h"
+
 using namespace std;
 int main() {
 
-	GameView *mygame = GameView::getInstance();
-	Event *news = new News();
-	Event *stolen = new Stolen();
-	mygame->init();
-	mygame->showStory();
-	mygame->showTime(3, 5);
-	mygame->showEvent(news);
-	mygame->showEvent(stolen);
-	system("pause");
+	GameController::getInstance()->init();
+	GameController::getInstance()->start();
 	return 0;
 }

@@ -1,56 +1,48 @@
-#pragma once
-#include<ctime>
-#include<string>
-#include<cstdlib>
+#ifndef EVENT_H_INCLUDED
+#define EVENT_H_INCLUDED
+
+#include <ctime>
+#include <string>
+#include <cstdlib>
+
 using namespace std;
+
+typedef enum ENUM_EVENT_TYPE{
+    ENUM_EVENT_NEWS,            // 新闻消息
+    ENUM_EVENT_MARKET_NEWS,      // 市场消息
+    ENUM_EVENT_HURT,            // 受伤事件
+    ENUM_EVENT_STOLEN,          // 失窃事件
+}EVENT_TYPE;
+
 class Event
 {
-protected:
-	string m_description[6];//事件描述
-	int  m_goodsId;// – 受影响的货物Id
-	int m_goodsAmount;// 受影响的货物数量
-	int m_goodsPrice;// 受影响的货物价格
-	int m_playerHealth;// 玩家减少的健康值
-	int m_loseMoney;// 玩家丢失的金钱
 public:
-	int randomnumb() {
-		srand((int)time(NULL));
-		return rand() % 6;
-	}//随机函数
-	virtual void setEventDesc() {}//设置事件描述
-	virtual string getEventDesc() {
-		return NULL;
-	}//获取事件描述
-	virtual 	void	setGoodsId(int id) {
-	}//设置受影响的货物ID
-	virtual 	int	   getGoodsId() {
-		return 0;
-	}//获取受影响的货物
-	virtual 	void setGoodsAmount(int amount) {
-	}// 设置受影响的货物数量
+    Event() {}
+    virtual ~Event() {}
 
-	virtual 	int	 getGoodsAmount() {
-		return 0;
-	}//获取受影响的货物数量
+    void setEventType(EVENT_TYPE type)
+    {
+        m_type = type;
+    }
 
-	virtual void setGoodsPrice(int price) {
-	}// 设置受影响的货物价格
+    EVENT_TYPE getEventType()
+    {
+        return m_type;
+    }
 
-	virtual int getGoodsPrice() {
-		return 0;
-	}//货物受影响的货物价格
+    void setEventDesc(string desc)
+    {
+        m_description = desc;
+    }
 
-	virtual void setPlayerHealth(int health) {
-	}//设置玩家减少的健康值
+    string getEventDesc()
+    {
+        return m_description;
+    }
 
-	virtual int	 getPlayerHealth() {
-		return 0;
-	}//获取玩家减少的健康值
-
-	virtual void setLoseMoney(int money) {}//设置玩家丢失的金钱
-
-	virtual int getLoseMoney() {// 获取玩家丢失的金钱
-		return 0;
-	}
-	Event(){}
+protected:
+    EVENT_TYPE m_type;                  // 事件类型
+    string m_description;               // 事件描述
 };
+
+#endif // EVENT_H_INCLUDED

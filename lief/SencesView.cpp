@@ -1,8 +1,9 @@
 #include "SencesView.h"
-#include"GameSence.h"
+#include"GameSences.h"
 #include<iostream>
 #include<cstdlib>
 #include<map>
+#include "Player.h"
 using namespace std;
 SencesView::SencesView()
 {
@@ -27,8 +28,8 @@ void	SencesView::showAirport(Airport *airport) {
 void	SencesView::showHousingAgency(HousingAgency * ha) {
 	cout << "想租房吗？优质房源大大地有，给你看看吧" << endl;
 	map<int, House*>housemap = ha->getHouseList();
-	map<int, Goods*>::iterator iter;
-	iter = housemap.begin();
+	// map<int, Goods*>::iterator iter;
+	auto iter = housemap.begin();
 	while (iter != housemap.end())
 	{
 		cout << iter->first << "号房:";
@@ -40,11 +41,12 @@ void	SencesView::showHousingAgency(HousingAgency * ha) {
 
 }//展示房屋中介相关信息（应包含房屋信息）
 
-void	SencesView::showInternetBar(InternetBar * bar) {
-	cout << "大爷来上网啊,本网吧，服务周到，价格便宜，每个小时仅需:" <<bar-> getFees()<<"元钱"<<endl;
+void SencesView::showInternetBar(InternetBar * bar) {
+	cout << "大爷来上网啊,本网吧，服务周到，价格便宜，每个小时仅需:" <<bar->getFees()<<"元钱"<<endl;
 
 }//展示网吧相关信息
-void	SencesView::showHospital(Hospital *hospital) {
+void SencesView::showHospital(Hospital *hospital) {
+	auto player = Player::getInstance();
 	if (hospital->checkHealth(player)) {
 		cout << "你已病入膏肓，快快治疗吧" << endl;
 		if (hospital->treatment(player)) {
