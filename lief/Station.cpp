@@ -27,7 +27,7 @@ Station::~Station()
 /**  */
 int Station::getStation()
 {
-    return this->m_id;
+    return this->m_nId;
 }
 
 /** 设置当前地铁站的黑市状态 */

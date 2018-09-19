@@ -3,7 +3,7 @@
 GameSences::GameSences()
 {
     this->m_type = ENUM_SENCES_STATION;
-    this->m_name = "地铁站";
+    this->m_strName = "地铁站";
 }
 /** 设置场景类型 */
 void GameSences::setSencesType(SENCES_TYPE type){
@@ -25,10 +25,10 @@ int GameSences::getSencesType(){
 void GameSences::setSencesName(string name){
     //后期根据场景需要更改即可
     string NameArr[] = {"地铁站","银行","医院","机场","邮局","房屋中介"};
-    this->m_name = NameArr[this->m_type];
+    this->m_strName = NameArr[this->m_type];
 }
 
 /** 获取场景名称 */
 string GameSences::getSencesName(){
-    return this->m_name;
+    return this->m_strName;
 }

@@ -15,7 +15,7 @@ Goods::~Goods()
 */
 void Goods::setGoodsId(int id)
 {
-    m_id = id;
+    m_nId = id;
 }
 
 
@@ -24,7 +24,7 @@ void Goods::setGoodsId(int id)
 */
 int Goods::getGoodsId()
 {
-    return m_id;
+    return m_nId;
 }
 
 
@@ -33,7 +33,7 @@ int Goods::getGoodsId()
 */
 void Goods::setGoodsName(string name)
 {
-    m_name = name;
+    m_strName = name;
 }
 
 
@@ -42,7 +42,7 @@ void Goods::setGoodsName(string name)
 */
 string Goods::getGoodsName()
 {
-    return m_name;
+    return m_strName;
 }
 
 
@@ -51,7 +51,7 @@ string Goods::getGoodsName()
 */
 void Goods::setGoodsQualtity(int qualtity)
 {
-    m_qualtity = qualtity;
+    m_nQualtity = qualtity;
 }
 
 
@@ -60,7 +60,7 @@ void Goods::setGoodsQualtity(int qualtity)
 */
 int Goods::getGoodsQualtity()
 {
-    return m_qualtity;
+    return m_nQualtity;
 }
 
 
@@ -69,7 +69,7 @@ int Goods::getGoodsQualtity()
 */
 void Goods::setGoodsPurchasePrice(int price)
 {
-    m_purchasePrice = price;
+    m_nPurchasePrice = price;
 }
 
 
@@ -78,7 +78,7 @@ void Goods::setGoodsPurchasePrice(int price)
 */
 int Goods::getGoodsPurchasePrice()
 {
-    return m_purchasePrice;
+    return m_nPurchasePrice;
 }
 
 
@@ -87,7 +87,7 @@ int Goods::getGoodsPurchasePrice()
 */
 void Goods::setGoodsPrice(int price)
 {
-    m_price = price;
+    m_nPrice = price;
 }
 
 
@@ -96,7 +96,7 @@ void Goods::setGoodsPrice(int price)
 */
 int Goods::getGoodsPrice()
 {
-    return m_price;
+    return m_nPrice;
 }
 
 
@@ -105,7 +105,7 @@ int Goods::getGoodsPrice()
 */
 void Goods::setGoodsMinPrice(int price)
 {
-    m_minPrice = price;
+    m_nMinPrice = price;
 }
 
 
@@ -114,7 +114,7 @@ void Goods::setGoodsMinPrice(int price)
 */
 int Goods::getGoodsMinPrice()
 {
-    return m_minPrice;
+    return m_nMinPrice;
 }
 
 
@@ -123,7 +123,7 @@ int Goods::getGoodsMinPrice()
 */
 void Goods::setGoodsMaxPrice(int price)
 {
-    m_maxPrice = price;
+    m_nMaxPrice = price;
 }
 
 
@@ -132,7 +132,7 @@ void Goods::setGoodsMaxPrice(int price)
 */
 int Goods::getGoodsMaxPrice()
 {
-    return m_maxPrice;
+    return m_nMaxPrice;
 }
 
 

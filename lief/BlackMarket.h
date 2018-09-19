@@ -5,12 +5,12 @@
 #include"GameSences.h"
 class BlackMarket:public GameSences{
 private:
-list<Goods> m_goodsList;    //黑市的货物列表
+list<Goods*> m_goodsList;    //黑市的货物列表
 
 public:
 BlackMarket()
 {
-    list<Goods> goodList(10);
+    list<Goods*> goodList(10);
     this->m_goodsList = goodList;
 }
 /** 加载货物列表 */
@@ -30,7 +30,7 @@ void sellGoods(int id,int countNum);
 Goods* buyGoods(int id,int account);
 
 /** 获取货物列表 */
-list<Goods> getGoodsList();
+list<Goods*> getGoodsList();
 
 
 

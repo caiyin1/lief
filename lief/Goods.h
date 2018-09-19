@@ -10,6 +10,22 @@ class Goods
     public:
         Goods();
         virtual ~Goods();
+		Goods(int nId, int m_nPrice, string strName)
+		{
+			this->m_nId = nId;
+			this->m_nPrice = nId;
+			this->m_strName = strName;
+		};
+		Goods(int nId, int m_nPrice, string strName, int nQualtity, int nPurchasePrice, int nMinPrice , int nMaxPrice)
+		{
+			this->m_nId = nId;
+			this->m_nPrice = nId;
+			this->m_strName = strName;
+			this->m_nQualtity = nQualtity;
+			this->m_nPurchasePrice = nPurchasePrice;
+			this->m_nMaxPrice = nMaxPrice;
+			this->m_nMinPrice = nMinPrice;
+		};
 
         /**
         * …Ë÷√ªıŒÔ±‡∫≈
@@ -84,13 +100,13 @@ class Goods
     protected:
 
     private:
-        int m_id;
-        string m_name;
-        int m_qualtity;
-        int m_purchasePrice;
-        int m_price;
-        int m_minPrice;
-        int m_maxPrice;
+        int m_nId;
+        string m_strName;
+        int m_nQualtity;
+        int m_nPurchasePrice;
+        int m_nPrice;
+        int m_nMinPrice;
+        int m_nMaxPrice;
 };
 
 #endif // GOODS_H

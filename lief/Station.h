@@ -18,7 +18,7 @@
 
 class Station: public virtual GameSences{
 private:
-    int m_id;   //地铁站编号
+    int m_nId;   //地铁站编号
     bool m_isExistBlackMarket;  //当前地铁站是否存在黑市
     BlackMarket* m_BlackMarket; //如果不存在黑市，则为null
 

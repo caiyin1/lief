@@ -14,7 +14,7 @@ void BlackMarket::loadGoods()
     list<Goods>::iterator iter;
 
     for(iter = this->m_goodsList.begin(); iter != this->m_goodsList.end() ;iter++){
-    // cout<< *iter <<endl;
+     cout<< iter->getGoodsName()<< "\t" << iter->getGoodsPrice() << iter->getGoodsQualtity() <<endl;
     }
 }
 
@@ -47,15 +47,15 @@ void sellGoods(int id,int countNum){
     Goods* goods = new Goods();
     for(int i = 0; i < 10 ;i++)
     {
-        if(goods->m_id == id)
+        if(goods->m_nId == id)
             //指针指向它
             break;
     }
     else{cout<<"错误"<<endl;}
    //找到后就减少货物，加玩家的金币
-   goods->m_qualtity -=countNum;
+   goods->m_nQualtity -=countNum;
    /**
-        player.money += goods->m_price * countNum;
+        player.money += goods->m_nPrice * countNum;
 
    */
 }
@@ -76,7 +76,7 @@ Goods* BlackMarket::buyGoods(int id,int account){
         if(iter->id == id)
             break;
     }
-    if(account <= iter->m_qualtity)
+    if(account <= iter->m_nQualtity)
     {
         /**
             玩家的仓库相应的货物增加，然后玩家的金币减少

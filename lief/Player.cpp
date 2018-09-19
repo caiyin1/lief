@@ -113,7 +113,6 @@ bool Player::buy(Goods *goods,int amount)
     /**
     * 购入的货物数量必须大于0，否则提示购入货物失败
     */
-	Goods* goods = Goods:getInstance();
 	bool  bRet = false;
     if(amount <= 0)
     {
@@ -127,6 +126,7 @@ bool Player::buy(Goods *goods,int amount)
 //            printf("购入货物的数量为0，已默认为放弃购入。\n");
 
         // 返回值为false
+		bRet = false;
     }
     /**
     * 如果想购买的数量大于货物数量，提示错误
@@ -134,10 +134,9 @@ bool Player::buy(Goods *goods,int amount)
     */
     else if(amount > goods->getGoodsQualtity())
     {
-//        printf("货物数量不足！\n");
+        cout << "货物数量不足！\n"<<endl;
 
-        // 返回值为false
-        return false;
+        bRet =  false;
     }
 
     /**
@@ -148,7 +147,7 @@ bool Player::buy(Goods *goods,int amount)
         printf("仓库容量不足，请先清空仓库。\n");
 
         // 返回值为false
-        return false;
+		bRet = false;
     }
 
     /**
@@ -156,10 +155,10 @@ bool Player::buy(Goods *goods,int amount)
     */
     else if(goods->getGoodsPrice() * amount > m_nMoney)
     {
-//        printf("当前现金不足，请先取钱后再来。\n");
+		cout << "当前现金不足，请先取钱后再来。\n" << endl;
 
         // 返回值为false
-        return false;
+        bRet = false;
     }
 
     /**
@@ -188,11 +187,12 @@ bool Player::buy(Goods *goods,int amount)
 
 
         // 提示购买成功
-//        printf("购买成功，已加入仓库中。\n");
+		cout << ("购买成功，已加入仓库中。\n" << endl;
 
         // 返回值为true
-        return true;
+        bRet =  true;
     }
+	return bRet;
 }
 
 
@@ -223,7 +223,7 @@ bool Player::sell(Goods *goods,int amount)
     */
     else if(amount > goods->getGoodsQualtity())
     {
-//        printf("库存货物数量不足！\n");
+        printf("库存货物数量不足！\n");
 
         // 返回值为false
         return false;
@@ -250,7 +250,7 @@ bool Player::sell(Goods *goods,int amount)
 
 
         // 提示出售成功
-//        printf("出售成功，现金增加，小心安全！\n");
+        printf("出售成功，现金增加，小心安全！\n");
     }
 
     // 返回值为true

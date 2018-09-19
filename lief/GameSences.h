@@ -16,7 +16,7 @@ typedef enum ENUM_SENCES_TYPE{
 class GameSences{
 private:
     SENCES_TYPE m_type;     //场景类型
-    string m_name;          //场景名称
+    string m_strName;          //场景名称
 public:
 GameSences();
 
