@@ -1,17 +1,25 @@
 #include "Player.h"
 
+Player* g_pInstance = NULL;
+
+Player* Player::getInstance()
+{
+	if (g_pInstance == nullptr)
+	{
+		g_pInstance = new Player();
+		g_pInstance->init();
+	}
+	return g_pInstance;
+}
+
 Player::Player()
 {
-    // 创建一个背包对象
-    Package *package = new Package();
-    // 调用函数绑定背包到人物身上
-    this->setPlayerPackage(package);
 
 }
 
 Player::~Player()
 {
-    delete m_pPackage;
+    delete this->m_pPackage;
 }
 
 
@@ -138,11 +146,10 @@ bool Player::buy(Goods *goods,int amount)
 
         bRet =  false;
     }
-
     /**
     * 判断仓库容量是否足够，不足则不能购入，提示先清空仓库
     */
-    else if(m_pPackage->getMaxReserve() + amount > m_pPackage->getMaxReserve())
+    else if(this->m_pPackage->getMaxReserve() + amount > this->m_pPackage->getMaxReserve())
     {
         printf("仓库容量不足，请先清空仓库。\n");
 
@@ -153,7 +160,7 @@ bool Player::buy(Goods *goods,int amount)
     /**
     * 如果现金不足以买预购入的商品，给出提示
     */
-    else if(goods->getGoodsPrice() * amount > m_nMoney)
+    else if(goods->getGoodsPrice() * amount > this->m_nMoney)
     {
 		cout << "当前现金不足，请先取钱后再来。\n" << endl;
 
@@ -172,10 +179,10 @@ bool Player::buy(Goods *goods,int amount)
         goods->setGoodsQualtity(goods->getGoodsQualtity() - amount);
 
         // 玩家现金减少:货物价格 * 货物数量
-        m_nMoney -= goods->getGoodsPrice() * amount;
+        this->m_nMoney -= goods->getGoodsPrice() * amount;
 
         // 仓库当前容量增加，可用容量减少
-        m_pPackage->setCurReserve(m_pPackage->getCurReserve() + amount);
+        this->m_pPackage->setCurReserve(this->m_pPackage->getCurReserve() + amount);
 
 
         ///////////
@@ -187,7 +194,7 @@ bool Player::buy(Goods *goods,int amount)
 
 
         // 提示购买成功
-		cout << ("购买成功，已加入仓库中。\n" << endl;
+		cout << "购买成功，已加入仓库中。\n" << endl;
 
         // 返回值为true
         bRet =  true;
@@ -261,10 +268,10 @@ bool Player::sell(Goods *goods,int amount)
 /**
 * 设置玩家个人仓库地址
 */
-void Player::setPlayerPackage(Package *package)
+/*void Player::setPlayerPackage(Package *package)
 {
     m_pPackage = package;
-}
+}*/
 
 
 /**

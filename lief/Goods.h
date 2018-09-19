@@ -10,22 +10,6 @@ class Goods
     public:
         Goods();
         virtual ~Goods();
-		Goods(int nId, int m_nPrice, string strName)
-		{
-			this->m_nId = nId;
-			this->m_nPrice = nId;
-			this->m_strName = strName;
-		};
-		Goods(int nId, int m_nPrice, string strName, int nQualtity, int nPurchasePrice, int nMinPrice , int nMaxPrice)
-		{
-			this->m_nId = nId;
-			this->m_nPrice = nId;
-			this->m_strName = strName;
-			this->m_nQualtity = nQualtity;
-			this->m_nPurchasePrice = nPurchasePrice;
-			this->m_nMaxPrice = nMaxPrice;
-			this->m_nMinPrice = nMinPrice;
-		};
 
         /**
         * 设置货物编号
@@ -95,9 +79,6 @@ class Goods
         * 获取货物最大售价
         */
         int getGoodsMaxPrice();
-
-
-    protected:
 
     private:
         int m_nId;

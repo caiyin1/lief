@@ -92,18 +92,18 @@ void GameView::showGoodsList(map<int, Goods*>goodsList) {
 void GameView::showEvent(Event *event) {
 	if (typeid(*event) == typeid(News)) {
 		cout << "现在插播一条新闻:";
-		m_pEvent->showNews(event);
+		this->m_pEvent->showNews((News*)event);
 	}
 	else if (typeid(*event) == typeid(MarketNews)) {
 		cout << "啊!市场出现了一点小波动。" << endl ;
-		m_pEvent->showMarketNews(event);
+		m_pEvent->showMarketNews((MarketNews*)event);
 	}
 	else if (typeid(*event) == typeid(Stolen)) {
 		cout << "啊!那个杀千刀的小偷敢偷老子东西。" << endl;
-		m_pEvent->showStolen(event);
+		m_pEvent->showStolen((Stolen*)event);
 	}
 	else if (typeid(*event) == typeid(Hurt)) {
 		cout << "啊!你居然伤了我!";
-		m_pEvent->showHurt(event);
+		m_pEvent->showHurt((Hurt*)event);
 	}
 }

@@ -1,16 +1,6 @@
 #ifndef TIMECONTROLLER_H_INCLUDED
 #define TIMECONTROLLER_H_INCLUDED
 
-/**
-* Copyright(2018)
-* All rights reserved.
-* Author :
-* Date : 2018-09-13-09.08.09
-* Description :
-*/
-#include "GameController.h"
-#include "SoundController.h"
-#include "EventController.h"
 class TimeController{
     public:
         /**设置总的游戏天数*/
@@ -33,4 +23,5 @@ class TimeController{
         int totalDays;
         int curDay;
 };
+
 #endif // TIMECONTROLLER_H_INCLUDED
